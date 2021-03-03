@@ -58,7 +58,8 @@ body {
 
 .quote {
   margin: 40px;
-  font: 400 40px 'Vibur';
+  font-size: 40px;
+  font-family: 'Vibur', cursive;
   letter-spacing: 1px;
   color: #fee;
   max-width: 600px;
