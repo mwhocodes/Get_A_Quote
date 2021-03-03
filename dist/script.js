@@ -5,15 +5,6 @@ quoteBtn.addEventListener('click', generateQuote)
 
 generateQuote()
 
-// function generateQuote() {
-//   const config = {
-//     headers: {Accept: 'application/json'}
-//   }
-//   fetch('http://icanhazdadjoke.com', config).then(res =>
-//     res.json().then(data => (quoteEl.innerHTML = data.joke))
-//   )
-// }
-
 function generateQuote() {
   const config = {
     headers: {
