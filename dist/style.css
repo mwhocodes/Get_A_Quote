@@ -55,7 +55,7 @@ body {
 }
 
 .quote {
-  margin: 40px;
+  margin: 0 auto;
   /* min: 2rem,  middle: 5vw, max: 5rem*/
   font-size: clamp(2rem, 5vw, 4rem);
   letter-spacing: 1px;
@@ -66,20 +66,19 @@ body {
 
 @keyframes neon {
   from {
-    text-shadow: 0 0 6px rgba(255, 238, 238, 0.92),
-      0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(255, 86, 68, 0.52),
-      0 0 21px rgba(255, 86, 68, 0.92), 0 0 34px rgba(255, 86, 68, 0.78),
-      0 0 54px rgba(255, 86, 68, 0.92);
+    text-shadow: 0 0 6px rgba(255, 238, 238, 0.92), 0 0 30px rgba(202, 228, 225, 0.34),
+      0 0 12px rgba(255, 86, 68, 0.52), 0 0 21px rgba(255, 86, 68, 0.92),
+      0 0 34px rgba(255, 86, 68, 0.78), 0 0 54px rgba(255, 86, 68, 0.92);
   }
   to {
-    text-shadow: 0 0 6px rgba(255, 238, 238, 0.98),
-      0 0 30px rgba(255, 238, 238, 0.42), 0 0 12px rgba(255, 86, 68, 0.58),
-      0 0 22px rgba(255, 86, 68, 0.84), 0 0 38px rgba(255, 86, 68, 0.88),
-      0 0 60px rgba(255, 86, 68, 1);
+    text-shadow: 0 0 6px rgba(255, 238, 238, 0.98), 0 0 30px rgba(255, 238, 238, 0.42),
+      0 0 12px rgba(255, 86, 68, 0.58), 0 0 22px rgba(255, 86, 68, 0.84),
+      0 0 38px rgba(255, 86, 68, 0.88), 0 0 60px rgba(255, 86, 68, 1);
   }
 }
 
 a {
+  margin-top: 30px;
   position: relative;
   display: inline-block;
   padding: 10px 25px;
@@ -116,7 +115,7 @@ a span:nth-child(1) {
 
 a:hover span:nth-child(1) {
   left: 100%;
-  transition: 1s;
+  transition: 0.25s;
 }
 
 a span:nth-child(2) {
@@ -159,4 +158,76 @@ a:hover span:nth-child(4) {
   bottom: 100%;
   transition: 1s;
   transition-delay: 0.75s;
+}
+
+.lds-ellipsis {
+  display: block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fee;
+  animation: neon-box 0.08s ease-in-out infinite alternate;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+@keyframes neon-box {
+  from {
+    box-shadow: 0 0 6px rgba(255, 238, 238, 0.92), 0 0 30px rgba(202, 228, 225, 0.34),
+      0 0 12px rgba(255, 86, 68, 0.52), 0 0 21px rgba(255, 86, 68, 0.92),
+      0 0 34px rgba(255, 86, 68, 0.78), 0 0 54px rgba(255, 86, 68, 0.92);
+  }
+  to {
+    box-shadow: 0 0 6px rgba(255, 238, 238, 0.98), 0 0 30px rgba(255, 238, 238, 0.42),
+      0 0 12px rgba(255, 86, 68, 0.58), 0 0 22px rgba(255, 86, 68, 0.84),
+      0 0 38px rgba(255, 86, 68, 0.88), 0 0 60px rgba(255, 86, 68, 1);
+  }
+}
+
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite, neon-box 0.08s ease-in-out infinite alternate;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite, neon-box 0.08s ease-in-out infinite alternate;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite, neon-box 0.08s ease-in-out infinite alternate;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite, neon-box 0.08s ease-in-out infinite alternate;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
 }
